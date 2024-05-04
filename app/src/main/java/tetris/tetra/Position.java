@@ -16,16 +16,13 @@ public class Position {
         this.y = y;
     }
     
-    public Position() {
-        
-    }
-    
-    
     @Override
     public boolean equals(Object obj) {
-        Position other = (Position)obj;
-        
-        return x == other.x && y == other.y;
+        if (obj instanceof Position other) {
+            return x == other.x && y == other.y;
+        }
+
+        return false;
     }
 
     @Override

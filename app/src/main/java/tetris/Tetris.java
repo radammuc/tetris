@@ -111,22 +111,12 @@ public class Tetris implements ITetris {
     @Override
     public boolean checkInsert(Movement movement) {
 
-        Tetra next;
-
-        switch (movement) {
-            case Rotate:
-                next = current.rotateClockwise();
-                break;
-            case Left:
-                next = current.left();
-                break;
-            case Right:
-                next = current.right();
-                break;
-            case Down:
-            default:
-                next = current.down();
-        }
+        Tetra next = switch (movement) {
+            case Rotate -> current.rotateClockwise();
+            case Left -> current.left();
+            case Right -> current.right();
+            default -> current.down();
+        };
 
         boolean canMove = array.canMove(current, next);
 
