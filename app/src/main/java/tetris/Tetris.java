@@ -85,11 +85,7 @@ public class Tetris implements ITetris {
 
     public void run() {
 
-        while (true) {
-
-            if (!canNewTetraMove()) {
-                break;
-            }
+        while (canNewTetraMove()) {
 
             boolean canMove;
 
