@@ -67,7 +67,7 @@ public class GameArray {
         
         int collapsedRows = 0;
         
-        // collapsing von "oben"
+        // collapsing from above
         for (int i = 2; i < 22; i++) {
             boolean c = checkCollapsable(i);
             if (c) {
