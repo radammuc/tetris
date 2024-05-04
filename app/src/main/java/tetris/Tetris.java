@@ -65,9 +65,9 @@ public class Tetris implements ITetris {
             gui.close();
             
             if (highscores.isTopScore(score)) {
-                System.out.println("new top score");
+                System.out.println("New top score");
             }
-            highscores.addScore("Roman", score, rows, new Date(), START_DELAY, delay, DELAY_CHANGE_PER_LEVEL);
+            highscores.addScore("John Doe", score, rows, new Date(), START_DELAY, delay, DELAY_CHANGE_PER_LEVEL);
             
             highscores.save();
             
@@ -131,7 +131,7 @@ public class Tetris implements ITetris {
             default:
                 next = current.down();
         }
-      
+
         boolean canMove = array.canMove(current, next);
 
         checkPause();

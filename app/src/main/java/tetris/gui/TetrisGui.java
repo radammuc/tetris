@@ -5,6 +5,7 @@
  */
 package tetris.gui;
 
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
@@ -25,21 +26,18 @@ public class TetrisGui extends JFrame implements ITetrisGui {
         final int SIZE = 25;
         
         this.tetris = tetris;
-        
-        setSize(SIZE * 20, SIZE * 20 + 24);
+
+        setSize(SIZE * 16, SIZE * 20 + 24);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         gamePane = new GamePane(array);
         add(gamePane);
 
+        setMinimumSize(getSize());
+
         setResizable(false);
         setVisible(true);
-        
-        JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("menu");
-        menuBar.add(menu);
-        add(menu);
 
         pack();
 
@@ -76,10 +74,10 @@ public class TetrisGui extends JFrame implements ITetrisGui {
     
     @Override
     public boolean showGameOverMessage(int score) {
-        Object[] options = {"Ja, nochmal spielen", "Beenden"};
+        Object[] options = {"Yes, play again", "Close"};
 
         return JOptionPane.OK_OPTION == JOptionPane.showOptionDialog(null, 
-                "Sie haben " + score + " Punkte erreicht. \nNochmal spielen?", 
+                "You reached " + score + " points. \nPlay again?",
                 "Game over", JOptionPane.YES_NO_OPTION,
                 JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
     }
