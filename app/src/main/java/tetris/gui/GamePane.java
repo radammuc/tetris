@@ -15,10 +15,6 @@ import tetris.GameArray;
 import tetris.tetra.Position;
 import tetris.tetra.Tetra;
 
-/**
- *
- * @author roman
- */
 public class GamePane extends JPanel {
 
     private final int SIZE = 25;
@@ -31,8 +27,7 @@ public class GamePane extends JPanel {
     public GamePane(GameArray array) {
         
         this.array = array;
-        
-        setSize(SIZE * 40, SIZE * 20);
+        setSize(SIZE * 40, SIZE * 16);
     }
 
     @Override
@@ -55,9 +50,9 @@ public class GamePane extends JPanel {
             }
         }
         
-        AttributedString scoreValue = new AttributedString("" + score);
-        scoreValue.addAttribute(TextAttribute.WEIGHT, TextAttribute.WEIGHT_BOLD);
-        scoreValue.addAttribute(TextAttribute.SIZE, 16);
+        AttributedString scoreValue = new AttributedString("Points: " + score);
+        scoreValue.addAttribute(TextAttribute.WEIGHT, TextAttribute.WEIGHT_DEMIBOLD);
+        scoreValue.addAttribute(TextAttribute.SIZE, 14);
     
         g.drawString(scoreValue.getIterator(), SIZE * 10 + 40, 20);
         
