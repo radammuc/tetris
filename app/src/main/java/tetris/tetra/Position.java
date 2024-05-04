@@ -6,10 +6,6 @@
 
 package tetris.tetra;
 
-/**
- *
- * @author Roman
- */
 public class Position {
     
     public int x;

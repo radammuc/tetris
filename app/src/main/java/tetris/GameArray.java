@@ -9,10 +9,6 @@ import java.util.List;
 import tetris.tetra.Position;
 import tetris.tetra.Tetra;
 
-/**
- *
- * @author roman
- */
 public class GameArray {
     
     private final int[][] array = new int[22][10];
@@ -73,7 +69,7 @@ public class GameArray {
         
         // collapsing von "oben"
         for (int i = 2; i < 22; i++) {
-            boolean c = checkCollabsable(i);
+            boolean c = checkCollapsable(i);
             if (c) {
                 collapseRow(i);
                 //update();
@@ -95,7 +91,7 @@ public class GameArray {
         }
     }
     
-    private boolean checkCollabsable(int row) {
+    private boolean checkCollapsable(int row) {
         int[] theRow = array[row];
         
         for (int i = 0; i < 10; i++) {

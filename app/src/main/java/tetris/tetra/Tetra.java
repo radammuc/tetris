@@ -9,10 +9,6 @@ package tetris.tetra;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Roman
- */
 public class Tetra {
     
     private final List<Position> positions;

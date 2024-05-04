@@ -9,10 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- *
- * @author roman
- */
 public class Tetras {
     
     private final List<Tetra> tetras = new ArrayList<>(7);

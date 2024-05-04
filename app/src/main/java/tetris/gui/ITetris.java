@@ -7,10 +7,6 @@ package tetris.gui;
 
 import tetris.Movement;
 
-/**
- *
- * @author roman
- */
 public interface ITetris {
     
     boolean checkInsert(Movement movement);

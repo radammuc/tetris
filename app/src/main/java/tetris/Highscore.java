@@ -7,10 +7,6 @@ package tetris;
 
 import java.util.Date;
 
-/**
- *
- * @author roman
- */
 public class Highscore implements Comparable<Highscore> {
 
     String name;
@@ -22,8 +18,8 @@ public class Highscore implements Comparable<Highscore> {
     int finalDelay;
     int level;
 
-    Highscore(String name, int score, int rows, Date date, int startDelay, 
-            int finalDelay, int level) {
+    Highscore(String name, int score, int rows, Date date, int startDelay,
+              int finalDelay, int level) {
         this.name = name;
         this.score = score;
         this.rows = rows;
@@ -43,6 +39,4 @@ public class Highscore implements Comparable<Highscore> {
         return String.format("%s,%d,%d,%d,%d,%d,%d", name, score, 
                 date.getTime(), rows, startDelay, finalDelay, level);
     }
-    
-    
 }
