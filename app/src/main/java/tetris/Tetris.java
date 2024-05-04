@@ -85,8 +85,8 @@ public class Tetris implements ITetris {
 
     public void run() {
 
+        int collapsedRows = 0;
         while (canNewTetraMove()) {
-
             boolean canMove;
 
             do {
@@ -95,15 +95,21 @@ public class Tetris implements ITetris {
                 canMove = checkInsert(Movement.Down);
             } while (canMove);
 
-            int collapsedRows = array.collapseRows();
+            int currentCollapsedRows = array.collapseRows();
 
             score += getSummedRows(collapsedRows) * 100;
-            rows += collapsedRows;
+            rows += currentCollapsedRows;
+
+            collapsedRows += currentCollapsedRows;
 
             gui.showScore(score);
 
-            if (delay > 50 && collapsedRows > 0) {
+            if (delay > 50 && collapsedRows >= 10) {
                 delay -= DELAY_CHANGE_PER_LEVEL;
+
+                // increase level every 10 collapsed rows
+                collapsedRows -= 10;
+                gui.increaseLevel();
             }
         }
     }

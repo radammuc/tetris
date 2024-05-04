@@ -22,5 +22,6 @@ public interface ITetrisGui {
     void updateView();
     
     boolean showGameOverMessage(int score);
-    
+
+    void increaseLevel();
 }

@@ -22,12 +22,15 @@ public class GamePane extends JPanel {
     private final GameArray array;
     
     private int score;
+    private int level;
     private Tetra nextTetra;
 
     public GamePane(GameArray array) {
         
         this.array = array;
-        setSize(SIZE * 40, SIZE * 16);
+        setSize(SIZE * 40, SIZE * 18);
+
+        level = 1;
     }
 
     @Override
@@ -55,13 +58,19 @@ public class GamePane extends JPanel {
         scoreValue.addAttribute(TextAttribute.SIZE, 14);
     
         g.drawString(scoreValue.getIterator(), SIZE * 10 + 40, 20);
+
+        AttributedString levelValue = new AttributedString("Level: " + level);
+        levelValue.addAttribute(TextAttribute.WEIGHT, TextAttribute.WEIGHT_DEMIBOLD);
+        levelValue.addAttribute(TextAttribute.SIZE, 14);
+
+        g.drawString(levelValue.getIterator(), SIZE * 10 + 40, 40);
         
         if (nextTetra != null) {
             Color c = Colors.color[nextTetra.getColor()];
             g.setColor(c);
 
             for (Position pos : nextTetra.getAbsolutePositions()) {
-                g.fillRect(SIZE * 10 + 60 + pos.x * SIZE, 70 + pos.y * SIZE, SIZE, SIZE);
+                g.fillRect(SIZE * 10 + 60 + pos.x * SIZE, 90 + pos.y * SIZE, SIZE, SIZE);
             } 
         }
     }
@@ -77,5 +86,8 @@ public class GamePane extends JPanel {
     public void setScore(int score) {
         this.score = score;
     }
-    
+
+    public void increaseLevel() {
+        level += 1;
+    }
 }

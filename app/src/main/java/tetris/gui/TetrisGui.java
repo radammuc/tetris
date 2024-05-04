@@ -27,7 +27,7 @@ public class TetrisGui extends JFrame implements ITetrisGui {
         
         this.tetris = tetris;
 
-        setSize(SIZE * 16, SIZE * 20 + 24);
+        setSize(SIZE * 18, SIZE * 20 + 24);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,6 +92,11 @@ public class TetrisGui extends JFrame implements ITetrisGui {
     public void showScore(int score) {
         gamePane.setScore(score);
         repaint();
+    }
+
+    @Override
+    public void increaseLevel() {
+        gamePane.increaseLevel();
     }
 
     @Override
